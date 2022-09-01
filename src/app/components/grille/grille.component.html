@@ -1,0 +1,14 @@
+<div>
+  <h1>Grille</h1>
+  <div *ngIf="grilleDisplay">
+    <p>Position finale de l'aspirateur :</p>
+    <p>X:{{ aspirateurDisplay.position.X }}, Y:{{ aspirateurDisplay.position.Y }}, Orientation:{{ aspirateurDisplay.orientation }}</p>
+    <mat-grid-list class="gridList" [cols]="grilleDisplay[0].length">
+    <span *ngFor="let sousGrille of grilleDisplay; let row = index">
+      <mat-grid-tile *ngFor="let element of sousGrille; let column = index">
+        <img [alt]="element.image" height="100%" [src]="element.image" [style]="element.orientation">
+      </mat-grid-tile>
+    </span>
+    </mat-grid-list>
+  </div>
+</div>

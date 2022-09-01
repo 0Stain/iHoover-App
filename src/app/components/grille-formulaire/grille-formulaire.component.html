@@ -1,0 +1,68 @@
+<div>
+  <H1>Paramètres</H1>
+  <form>
+    <p>Dimensions :</p>
+    <mat-form-field class="moitie-gauche">
+      <mat-label>Dimension X</mat-label>
+      <input matInput [(ngModel)]="grille.dimensions.X" [formControl]="dimensionXFormControl">
+      <mat-error *ngIf="dimensionXFormControl.hasError('required')">
+        Dimension X est obligatoire
+      </mat-error>
+      <mat-error *ngIf="dimensionXFormControl.hasError('pattern')">
+        Dimension X doit être un nombre
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="moitie-droite">
+      <mat-label>Dimension Y</mat-label>
+      <input matInput [(ngModel)]="grille.dimensions.Y" [formControl]="dimensionYFormControl">
+      <mat-error *ngIf="dimensionYFormControl.hasError('required')">
+        Dimension Y est obligatoire
+      </mat-error>
+      <mat-error *ngIf="dimensionYFormControl.hasError('pattern')">
+        Dimension Y doit être un nombre
+      </mat-error>
+    </mat-form-field>
+
+    <p>Position initiale de l’aspirateur :</p>
+    <mat-form-field class="moitie-gauche">
+      <mat-label>X</mat-label>
+      <input matInput [(ngModel)]="aspirateur.position.X" [formControl]="aspirateurPositionXFormControl">
+      <mat-error *ngIf="aspirateurPositionXFormControl.hasError('required')">
+        La position X est obligatoire
+      </mat-error>
+      <mat-error *ngIf="aspirateurPositionXFormControl.hasError('pattern')">
+        La position doit être un nombre
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="moitie-gauche">
+      <mat-label>Y</mat-label>
+      <input matInput [(ngModel)]="aspirateur.position.Y" [formControl]="aspirateurPositionYFormControl">
+      <mat-error *ngIf="aspirateurPositionYFormControl.hasError('required')">
+        La position Y est obligatoire
+      </mat-error>
+      <mat-error *ngIf="aspirateurPositionYFormControl.hasError('pattern')">
+        La position doit être un nombre
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="plein">
+      <mat-label>Orientation</mat-label>
+      <input matInput [(ngModel)]="aspirateur.orientation" [formControl]="orientationFormControl">
+      <mat-error *ngIf="orientationFormControl.hasError('required')">
+        L'orientation est obligatoire
+      </mat-error>
+      <mat-error *ngIf="orientationFormControl.hasError('pattern')">
+        L'orientation ne peuvent être seulement N, E, S ou W
+      </mat-error>
+    </mat-form-field>
+
+    <p>Instructions :</p>
+    <mat-form-field class="plein">
+      <mat-label>Instructions</mat-label>
+      <input matInput [(ngModel)]="grille.instructions" [formControl]="instructionsFormControl">
+      <mat-error *ngIf="instructionsFormControl.hasError('pattern')">
+        Les instructions ne peuvent contenir seulement A, D ou G
+      </mat-error>
+    </mat-form-field>
+  </form>
+  <button class="button-19" (click)="valider()">Lancer</button>
+</div>
